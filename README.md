@@ -23,12 +23,19 @@
 - Get Data from TMDB now playing movies list API
 - Custom Hook for nowPlayingMovies
 - Create movieSlice
--Update the store with movie data
+- Update the store with movie data
 - Planning for MainContainer & Secondary container
 - Fetch Data for Trailer Video
 - Update Store with Traier Video Data
 - Embeded the Youtube Video and make it autoplay and mute
 - Tailwind classes to make Main Container look awesome
+- Build Secondary Component
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Made the Browse page amazing with tailwind
+- usePopularMovies for new movies
+
 
 # Features
 
