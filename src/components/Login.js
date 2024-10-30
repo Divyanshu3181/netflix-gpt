@@ -19,14 +19,14 @@ const Login = () => {
     const password = useRef(null);
 
     const handleButtonClick = () => {
-        // Validate the form data
+
         const message = checkValidData(email.current.value, password.current.value);
         setErrorMessage(message);
         if (message) return;
 
-        //Sign In / Sign Up Logic
+
         if (!isSignInForm) {
-            // Sign Up Logic
+
             createUserWithEmailAndPassword(
                 auth,
                 email.current.value,
@@ -36,23 +36,23 @@ const Login = () => {
 
                     const user = userCredential.user;
                     updateProfile(user, {
-                        displayName: name.current.value , 
+                        displayName: name.current.value,
                         photoURL: USER_AVTAR
                     })
-                    .then(() => {
-                        const {uid, email, displayName, photoURL} = auth.currentUser;
-                        dispatch(
-                            addUser({
-                                uid: uid, 
-                                email: email, 
-                                displayName: displayName, 
-                                photoURL: photoURL
-                            })
-                        ); 
-                    })
-                    .catch((error) => {
-                        setErrorMessage(error.message);
-                    });
+                        .then(() => {
+                            const { uid, email, displayName, photoURL } = auth.currentUser;
+                            dispatch(
+                                addUser({
+                                    uid: uid,
+                                    email: email,
+                                    displayName: displayName,
+                                    photoURL: photoURL
+                                })
+                            );
+                        })
+                        .catch((error) => {
+                            setErrorMessage(error.message);
+                        });
 
 
                 })
@@ -63,7 +63,7 @@ const Login = () => {
                 });
         }
         else {
-            // Sign In Logic
+
             signInWithEmailAndPassword(
                 auth,
                 email.current.value,
@@ -89,13 +89,14 @@ const Login = () => {
         <div>
             <Header />
             <div className='absolute'>
-                <img src= {BackGroundLogo}
+                <img className='h-screen w-screen object-cover'
+                    src={BackGroundLogo}
                     alt='Logo'
                 />
             </div>
             <form
                 onSubmit={(e) => e.preventDefault()}
-                className='absolute p-12 bg-black w-3/12 m-36 mx-auto right-0 left-0 text-white bg-opacity-80'>
+                className='absolute p-12 bg-black w-full md:w-3/12 m-36 mx-auto right-0 left-0 text-white bg-opacity-80'>
                 <h1
                     className='font-bold text-3xl py-4'>
                     {isSignInForm ? "Sign In" : "Sign Up"}

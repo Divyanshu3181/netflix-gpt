@@ -1,4 +1,4 @@
-# Netflix GPT
+# Netflux 
 
 - Create React App
 - Configur Tailwind CSS
@@ -32,11 +32,12 @@
 - Build Secondary Component
 - Build Movie List
 - Build Movie Card
+
 - TMDB Image CDN URL
 - Made the Browse page amazing with tailwind
 - usePopularMovies for new movies
-- GPT Search Page
-- GPT Search Bar
+- Movie Search Page
+- Movie Search Bar
 - Multi-Language Feature in our app (Bonus)
 
 
@@ -57,6 +58,6 @@
      - Movie List * N
      - 
 
-- NetflixGPT
+- Netflux
     - Search Bar
     - Movie Suggestions

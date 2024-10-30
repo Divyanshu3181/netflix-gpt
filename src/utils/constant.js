@@ -8,7 +8,7 @@ export const API_OPTIONS = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYmEwNTViNTg5OGFkNjZjMTJmY2E3Y2VlMzhlYWZiNiIsIm5iZiI6MTcyOTk3MzExMS40NTIzNjYsInN1YiI6IjY3MWQ0OWE4NzY5MTA3ZDc3YjQ3ZWM2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p9vmJVGBY1N4VBm4MXA-9Qj158Gc9Ipz_EtpZME_ri0'
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYmEwNTViNTg5OGFkNjZjMTJmY2E3Y2VlMzhlYWZiNiIsIm5iZiI6MTcyOTk3MzExMS40NTIzNjYsInN1YiI6IjY3MWQ0OWE4NzY5MTA3ZDc3YjQ3ZWM2OCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.p9vmJVGBY1N4VBm4MXA-9Qj158Gc9Ipz_EtpZME_ri0',
     }
   };
 
@@ -19,3 +19,4 @@ export const SUPPORTED_LANGUAGES = [
   {identifier: "hindi", name: "Hindi"},
   {identifier: "spanish", name: "Spanish"}
 ];
+
