@@ -1,19 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import lang from '../utils/languageConstant';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeLanguage } from '../utils/configSlice';
 import { API_OPTIONS, SUPPORTED_LANGUAGES } from '../utils/constant';
 import { addSearchMovieResult } from '../utils/searchSlice';
+import Shimmer from './Shimmer';
+
 
 const SearchBar = () => {
     const dispatch = useDispatch();
     const searchText = useRef(null);
+    const [isSearching, setIsSearching] = useState(false);
 
     const handleLanguageChange = (e) => {
         dispatch(changeLanguage(e.target.value));
     };
 
+
     const handleMovieSearchClick = async () => {
+        setIsSearching(true);
         const movieQuery = searchText.current.value;
         const data = await fetch("https://api.themoviedb.org/3/search/movie?query=" +
             movieQuery +
@@ -22,16 +27,22 @@ const SearchBar = () => {
         );
         const json = await data.json();
         const tmdbResults = json.results;
-        console.log(tmdbResults);
+
 
         dispatch(addSearchMovieResult(tmdbResults));
+        setIsSearching(false);
+
+
 
     }
 
-
     const langKey = useSelector((store) => store.config.lang);
+    
+    
 
     return (
+        <>
+        
         <div className="pt-[40%] md:pt-[10%] px-4 md:px-0">
             <form
                 className="w-full md:w-3/4 lg:w-1/2 mx-auto bg-gray-800 p-4 md:p-6 rounded-lg shadow-lg"
@@ -69,8 +80,12 @@ const SearchBar = () => {
                         </select>
                     </div>
                 </div>
+                
             </form>
+            
         </div>
+        {isSearching && <Shimmer />}
+        </>
     );
 };
 

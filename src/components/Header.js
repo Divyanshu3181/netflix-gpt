@@ -67,7 +67,7 @@ const Header = () => {
 
           <div className='flex items-center space-x-4'>
             <img
-              className='w-12 h-12 rounded-full border-2 border-gray-300 shadow-lg object-cover'
+              className='w-12 h-12 rounded-lg border-2 border-gray-300 shadow-lg object-cover'
               alt='user icon'
               src={user?.photoURL || "https://via.placeholder.com/150"}
             />
