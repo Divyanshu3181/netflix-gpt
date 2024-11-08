@@ -12,11 +12,24 @@ const Login = () => {
 
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState(null);
+    const [passwordError, setPasswordError] = useState('');
     const dispatch = useDispatch();
 
     const name = useRef(null);
     const email = useRef(null);
     const password = useRef(null);
+
+    const validatePassword = (value) => {
+        if (value.length < 8) {
+            setPasswordError('Password must be at least 8 characters long.');
+        } else if (!/[0-9]/.test(value)) {
+            setPasswordError('Password must contain at least one number.');
+        } else if (!/[A-Z]/.test(value)) {
+            setPasswordError('Password must contain at least one uppercase letter.');
+        } else {
+            setPasswordError('');
+        }
+    };
 
     const handleButtonClick = () => {
 
@@ -120,7 +133,10 @@ const Login = () => {
                     type='password'
                     placeholder='Password'
                     className='p-4 my-4 w-full rounded-lg  bg-gray-700'
+                    onChange={(e) => validatePassword(e.target.value)}
                 />
+                
+                {passwordError && <p className='text-red-500 text-sm'>{passwordError}</p>}
                 <p className='text-red-500 font-bold text-lg py-2'>{errorMessage}</p>
                 <button
                     onClick={handleButtonClick}
